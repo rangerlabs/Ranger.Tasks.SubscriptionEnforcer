@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+    task:
+        image: ranger.tasks.subscription_enforcer:dev
+        container_name: subscription_enforcer
+        networks:
+            - ranger
+
+networks:
+    ranger:
+        name: ranger-network
+        external: true

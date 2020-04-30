@@ -1,0 +1,1 @@
+docker-compose -f ./docker-compose-task.yml -p subscription_enforcer down
