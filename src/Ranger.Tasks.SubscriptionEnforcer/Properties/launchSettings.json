@@ -1,10 +1,10 @@
 ﻿{
-  "profiles": {
-    "Ranger.Tasks.SubscriptionEnforcer": {
-      "commandName": "Project",
-      "environmentVariables": {
-        "DOTNET_ENVIRONMENT": "Development"
-      }
+    "profiles": {
+        "Ranger.Tasks.SubscriptionEnforcer": {
+            "commandName": "Project",
+            "environmentVariables": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            }
+        }
     }
-  }
 }

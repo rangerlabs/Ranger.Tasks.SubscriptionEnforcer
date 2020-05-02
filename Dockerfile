@@ -33,8 +33,8 @@ COPY --from=restore /app/published .
 COPY --from=restore /app/vsdbg ./vsdbg
 
 ARG BUILD_CONFIG="Release"
-ARG DOTNET_ENVIRONMENT="Production"
-ENV DOTNET_ENVIRONMENT=${DOTNET_ENVIRONMENT}
+ARG ASPNETCORE_ENVIRONMENT="Production"
+ENV ASPNETCORE_ENVIRONMENT=${ASPNETCORE_ENVIRONMENT}
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN if [ "${BUILD_CONFIG}" = "Debug" ]; then \
