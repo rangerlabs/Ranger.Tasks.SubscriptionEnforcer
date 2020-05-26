@@ -9,6 +9,6 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.0" />
     <PackageReference Include="Ranger.Monitoring" version="2.1.1" />
     <PackageReference Include="Ranger.RabbitMQ" version="2.2.3" />
-    <PackageReference Include="Ranger.InternalHttpClient" Version="4.7.6" />
+    <PackageReference Include="Ranger.InternalHttpClient" Version="4.8.1" />
   </ItemGroup>
 </Project>
