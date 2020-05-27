@@ -5,8 +5,9 @@ using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Ranger.Common;
 using Ranger.InternalHttpClient;
-using Ranger.Logging;
+using Ranger.Monitoring.Logging;
 using Ranger.RabbitMQ;
 
 namespace Ranger.Tasks.SubscriptionEnforcer
@@ -37,8 +38,11 @@ namespace Ranger.Tasks.SubscriptionEnforcer
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
+                    var taskOptions = hostContext.Configuration.GetOptions<TaskOptions>("task");
+                    var identityAuthority = hostContext.Configuration["httpClient:identityAuthority"];
+                    services.Add(new ServiceDescriptor(typeof(TaskOptions), taskOptions));
                     services.AddPollyPolicyRegistry();
-                    services.AddTenantsHttpClient("http://tenants:8082", "tenantsApi", "cKprgh9wYKWcsm");
+                    services.AddTenantsHttpClient("http://tenants:8082", identityAuthority, "tenantsApi", "cKprgh9wYKWcsm");
                     services.AddHostedService<SubscriptionEnforcer>();
                 });
     }
