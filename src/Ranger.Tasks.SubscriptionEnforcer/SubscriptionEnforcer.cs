@@ -48,7 +48,7 @@ namespace Ranger.Tasks.SubscriptionEnforcer
                     _logger.LogInformation("Executing Subscription Enforcer");
                     try
                     {
-                        var tenants = await _tenantsHttpClient.GetAllTenantsAsync<IEnumerable<ContextTenant>>();
+                        var tenants = await _tenantsHttpClient.GetAllTenantsAsync<IEnumerable<ContextTenant>>(stoppingToken);
                         if (tenants.Result.Any())
                         {
                             _logger.LogInformation("Sending enforcment for {TenantCount} tenants", tenants.Result.Count());
