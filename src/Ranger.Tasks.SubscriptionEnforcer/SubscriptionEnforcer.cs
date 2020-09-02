@@ -18,9 +18,9 @@ namespace Ranger.Tasks.SubscriptionEnforcer
         private readonly ILogger<SubscriptionEnforcer> _logger;
         private readonly TaskOptions options;
         private readonly IBusPublisher _busPublisher;
-        private readonly TenantsHttpClient _tenantsHttpClient;
+        private readonly ITenantsHttpClient _tenantsHttpClient;
 
-        public SubscriptionEnforcer(IBusPublisher busPublisher, TenantsHttpClient tenantsHttpClient, ILogger<SubscriptionEnforcer> logger, TaskOptions options)
+        public SubscriptionEnforcer(IBusPublisher busPublisher, ITenantsHttpClient tenantsHttpClient, ILogger<SubscriptionEnforcer> logger, TaskOptions options)
         {
             _busPublisher = busPublisher;
             _tenantsHttpClient = tenantsHttpClient;
