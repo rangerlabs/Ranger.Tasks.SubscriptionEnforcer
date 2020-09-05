@@ -34,7 +34,7 @@ namespace Ranger.Tasks.SubscriptionEnforcer
                 .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .ConfigureContainer<ContainerBuilder>(builder =>
                 {
-                    builder.AddRabbitMq();
+                    builder.AddRabbitMq<Program>();
                 })
                 .ConfigureServices((hostContext, services) =>
                 {
